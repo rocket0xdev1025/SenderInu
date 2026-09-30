@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sender Inu ($SI) — Sending Memes on Ethereum</title>
+    <meta
+      name="description"
+      content="$SI is here on Ethereum—sending memes, chaos, and pure Inu energy straight to the timeline!"
+    />
+    <link rel="icon" href="logo.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;600;700&family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              velvet: "#3b0a6e",
+              grape: "#6b21a8",
+              neon: "#5eead4",
+              glow: "#7c3aed",
+              gold: "#f6c177",
+              cream: "#fff4e6",
+              inu: "#e8a06a",
+            },
+            fontFamily: {
+              display: ["Luckiest Guy", "cursive"],
+              bungee: ["Bungee", "cursive"],
+              body: ["Fredoka", "sans-serif"],
+            },
+            boxShadow: {
+              neon: "0 0 30px rgba(94, 234, 212, 0.45)",
+              grape: "0 0 40px rgba(124, 58, 237, 0.55)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --ca: "TBA";
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Fredoka", sans-serif;
+        background-image: linear-gradient(
+            180deg,
+            rgba(24, 4, 48, 0.62) 0%,
+            rgba(59, 10, 110, 0.72) 40%,
+            rgba(12, 2, 28, 0.82) 100%
+          ),
+          url("banner.jpg");
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: #fff4e6;
+      }
+
+      .paw {
+        animation: float 4.5s ease-in-out infinite;
+      }
+
+      .paw-delay {
+        animation-delay: 1.4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+          transform: translateY(-14px) rotate(8deg);
+        }
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .marquee-track {
+        animation: marquee 22s linear infinite;
+      }
+
+      .glass {
+        background: linear-gradient(
+          160deg,
+          rgba(91, 33, 182, 0.42),
+          rgba(15, 4, 36, 0.72)
+        );
+        backdrop-filter: blur(16px);
+        border: 2px solid rgba(246, 193, 119, 0.35);
+      }
+
+      .glow-text {
+        text-shadow: 0 0 18px rgba(94, 234, 212, 0.7), 0 4px 0 #3b0a6e;
+      }
+
+      .title-shadow {
+        text-shadow: 4px 4px 0 #3b0a6e, 8px 8px 0 rgba(94, 234, 212, 0.35);
+      }
+
+      .bone {
+        clip-path: polygon(
+          12% 35%,
+          22% 22%,
+          35% 28%,
+          65% 28%,
+          78% 22%,
+          88% 35%,
+          82% 50%,
+          88% 65%,
+          78% 78%,
+          65% 72%,
+          35% 72%,
+          22% 78%,
+          12% 65%,
+          18% 50%
+        );
+      }
+
+      .step-num {
+        background: radial-gradient(circle at 30% 20%, #5eead4, #7c3aed);
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="paw absolute left-6 top-28 text-5xl opacity-70">🐾</div>
+      <div class="paw paw-delay absolute right-10 top-44 text-6xl opacity-60">
+        🐾
+      </div>
+      <div class="paw absolute bottom-24 left-16 text-4xl opacity-50">🦴</div>
+      <div class="paw paw-delay absolute bottom-32 right-20 text-5xl opacity-50">
+        💎
+      </div>
+    </div>
+
+    <header
+      class="sticky top-0 z-50 border-b-4 border-gold/40 bg-[#1a0533]/80 backdrop-blur-xl"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
+      >
+        <a href="#top" class="flex items-center gap-3">
+          <img
+            src="logo.jpg"
+            alt="Sender Inu logo"
+            class="h-14 w-14 rounded-full border-4 border-gold object-cover shadow-neon"
+          />
+          <div>
+            <p class="font-display text-2xl tracking-wide text-gold">
+              Sender Inu
+            </p>
+            <p class="font-bungee text-xs text-neon">$SI • ETHEREUM</p>
+          </div>
+        </a>
+        <nav class="hidden items-center gap-6 md:flex">
+          <a href="#about" class="font-semibold hover:text-neon">About</a>
+          <a href="#buy" class="font-semibold hover:text-neon">How to Buy</a>
+          <a href="#chart" class="font-semibold hover:text-neon">Chart</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a
+            href="https://x.com/SenderInu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-11 w-11 items-center justify-center rounded-full border-2 border-gold/70 bg-black/70 hover:scale-110"
+            aria-label="Sender Inu on X"
+          >
+            <img src="x.png" alt="X" class="h-6 w-6 object-contain" />
+          </a>
+          <a
+            href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-gradient-to-r from-neon to-gold px-4 py-2 font-bungee text-sm text-velvet shadow-neon hover:scale-105"
+          >
+            BUY NOW
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="overflow-hidden border-b-4 border-gold/30 bg-[#120428]/80 py-2"
+    >
+      <div class="marquee-track flex w-max gap-10 whitespace-nowrap">
+        <span class="font-bungee text-gold"
+          >🐕 $SI IS SENDING 🚀 MEMES • CHAOS • PURE INU ENERGY 💎 WOOF WOOF
+          ETHEREUM 🐾 SENDER INU 🦴 $SI IS SENDING 🚀 MEMES • CHAOS • PURE INU
+          ENERGY 💎 WOOF WOOF ETHEREUM 🐾 SENDER INU 🦴</span
+        >
+        <span class="font-bungee text-gold"
+          >🐕 $SI IS SENDING 🚀 MEMES • CHAOS • PURE INU ENERGY 💎 WOOF WOOF
+          ETHEREUM 🐾 SENDER INU 🦴 $SI IS SENDING 🚀 MEMES • CHAOS • PURE INU
+          ENERGY 💎 WOOF WOOF ETHEREUM 🐾 SENDER INU 🦴</span
+        >
+      </div>
+    </div>
+
+    <main id="top" class="relative z-10">
+      <section class="mx-auto max-w-6xl px-4 pb-16 pt-12 text-center">
+        <img
+          src="logo.jpg"
+          alt="Sender Inu"
+          class="mx-auto mb-6 h-44 w-44 rounded-full border-8 border-gold object-cover shadow-grape md:h-56 md:w-56"
+        />
+        <p
+          class="mb-3 inline-block rounded-full border-2 border-neon bg-velvet/70 px-4 py-1 font-bungee text-xs tracking-widest text-neon"
+        >
+          THE DRIPPIEST INU ON ETH
+        </p>
+        <h1
+          class="title-shadow mb-4 font-display text-5xl leading-tight text-gold md:text-7xl"
+        >
+          SENDER INU
+        </h1>
+        <p class="glow-text mb-2 font-bungee text-2xl text-neon md:text-3xl">
+          $SI
+        </p>
+        <p
+          class="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-cream md:text-2xl"
+        >
+          $SI is here on Ethereum—sending memes, chaos, and pure Inu energy
+          straight to the timeline!
+        </p>
+
+        <div class="mb-8 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full bg-gradient-to-r from-gold via-inu to-neon px-8 py-4 font-bungee text-lg text-velvet shadow-neon hover:scale-105"
+          >
+            🦴 BUY NOW
+          </a>
+          <a
+            href="https://dexscreener.com/ethereum/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-full border-4 border-neon bg-velvet/80 px-8 py-4 font-bungee text-lg text-neon shadow-grape hover:scale-105"
+          >
+            📈 CHART
+          </a>
+          <a
+            href="https://x.com/SenderInu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 rounded-full border-4 border-gold bg-black/70 px-6 py-3 font-bungee text-cream hover:scale-105"
+          >
+            <img src="x.png" alt="" class="h-6 w-6" />
+            FOLLOW
+          </a>
+        </div>
+
+        <div class="glass mx-auto max-w-2xl rounded-3xl px-4 py-5 shadow-grape">
+          <p class="mb-2 font-bungee text-sm text-neon">CONTRACT ADDRESS</p>
+          <div class="flex flex-col items-center gap-3 sm:flex-row">
+            <code
+              id="ca-text"
+              class="w-full truncate rounded-2xl bg-black/50 px-4 py-3 font-mono text-gold"
+              >TBA</code
+            >
+            <button
+              id="copy-ca"
+              type="button"
+              class="w-full whitespace-nowrap rounded-2xl bg-gold px-5 py-3 font-bungee text-velvet hover:bg-neon sm:w-auto"
+            >
+              COPY CA
+            </button>
+          </div>
+          <p id="copy-toast" class="mt-2 hidden text-sm text-neon">
+            Copied. Now go send it. 🐾
+          </p>
+        </div>
+      </section>
+
+      <section id="about" class="mx-auto max-w-6xl px-4 pb-16">
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="glass rounded-3xl p-6 text-center shadow-grape">
+            <div class="mb-3 text-5xl">🐶</div>
+            <h2 class="mb-2 font-display text-3xl text-gold">Chain Drip</h2>
+            <p>
+              Velvet curtains. Iced-out S. Sender Inu showed up on Ethereum
+              looking like the timeline’s main character.
+            </p>
+          </article>
+          <article class="glass rounded-3xl p-6 text-center shadow-grape">
+            <div class="mb-3 text-5xl">📨</div>
+            <h2 class="mb-2 font-display text-3xl text-gold">Always Sending</h2>
+            <p>
+              Memes first. Chaos second. $SI exists to flood timelines with
+              unfiltered Inu energy.
+            </p>
+          </article>
+          <article class="glass rounded-3xl p-6 text-center shadow-grape">
+            <div class="mb-3 text-5xl">⚡</div>
+            <h2 class="mb-2 font-display text-3xl text-gold">ETH Native</h2>
+            <p>
+              Born on Ethereum. Swappable with ETH. Built for degens who bark
+              loud and send harder.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="buy" class="mx-auto max-w-6xl px-4 pb-16">
+        <h2
+          class="title-shadow mb-3 text-center font-display text-5xl text-gold"
+        >
+          How to Buy
+        </h2>
+        <p class="mb-10 text-center text-lg text-cream">
+          Four woofs from zero to $SI. Grab ETH, hit Uniswap, send it.
+        </p>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <article class="glass relative rounded-3xl p-6 pt-10">
+            <span
+              class="step-num absolute -top-4 left-6 flex h-12 w-12 items-center justify-center rounded-full font-bungee text-xl text-velvet"
+              >1</span
+            >
+            <h3 class="mb-2 font-display text-2xl text-gold">Get a Wallet</h3>
+            <p>
+              Install MetaMask or any Ethereum wallet. This is your kennel for
+              $SI.
+            </p>
+          </article>
+          <article class="glass relative rounded-3xl p-6 pt-10">
+            <span
+              class="step-num absolute -top-4 left-6 flex h-12 w-12 items-center justify-center rounded-full font-bungee text-xl text-velvet"
+              >2</span
+            >
+            <h3 class="mb-2 font-display text-2xl text-gold">Load ETH</h3>
+            <p>
+              Fund the wallet with Ethereum. You’ll need ETH for the swap and
+              gas.
+            </p>
+          </article>
+          <article class="glass relative rounded-3xl p-6 pt-10">
+            <span
+              class="step-num absolute -top-4 left-6 flex h-12 w-12 items-center justify-center rounded-full font-bungee text-xl text-velvet"
+              >3</span
+            >
+            <h3 class="mb-2 font-display text-2xl text-gold">Open Uniswap</h3>
+            <p>
+              Connect to Uniswap, paste the $SI CA, and pick ETH as the input.
+            </p>
+          </article>
+          <article class="glass relative rounded-3xl p-6 pt-10">
+            <span
+              class="step-num absolute -top-4 left-6 flex h-12 w-12 items-center justify-center rounded-full font-bungee text-xl text-velvet"
+              >4</span
+            >
+            <h3 class="mb-2 font-display text-2xl text-gold">Swap for $SI</h3>
+            <p>
+              Confirm the swap, watch the chain drip land, then send memes at
+              max volume.
+            </p>
+          </article>
+        </div>
+        <div class="mt-8 text-center">
+          <a
+            href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block rounded-full bg-gold px-10 py-4 font-bungee text-xl text-velvet shadow-neon hover:scale-105"
+          >
+            BUY $SI WITH ETH
+          </a>
+        </div>
+      </section>
+
+      <section id="chart" class="mx-auto max-w-6xl px-4 pb-20">
+        <h2
+          class="title-shadow mb-6 text-center font-display text-5xl text-gold"
+        >
+          Live Chart
+        </h2>
+        <div
+          class="overflow-hidden rounded-3xl border-4 border-gold/50 shadow-grape"
+        >
+          <iframe
+            title="Sender Inu Dexscreener chart"
+            src="https://dexscreener.com/ethereum/TBA?embed=1&theme=dark&trades=0&info=0"
+            class="h-[520px] w-full bg-black"
+          ></iframe>
+        </div>
+        <p class="mt-4 text-center">
+          <a
+            href="https://dexscreener.com/ethereum/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-bungee text-neon underline decoration-gold underline-offset-4"
+            >Open full Dexscreener chart</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <footer
+      class="border-t-4 border-gold/40 bg-[#120428]/90 px-4 py-10 text-center"
+    >
+      <img
+        src="logo.jpg"
+        alt=""
+        class="mx-auto mb-4 h-16 w-16 rounded-full border-4 border-gold object-cover"
+      />
+      <p class="font-display text-3xl text-gold">Sender Inu • $SI</p>
+      <p class="mx-auto mt-2 max-w-xl text-cream">
+        $SI is here on Ethereum—sending memes, chaos, and pure Inu energy
+        straight to the timeline!
+      </p>
+      <div class="mt-5 flex justify-center gap-3">
+        <a
+          href="https://x.com/SenderInu"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex h-12 w-12 items-center justify-center rounded-full bg-black"
+        >
+          <img src="x.png" alt="X / Twitter" class="h-7 w-7" />
+        </a>
+      </div>
+      <p class="mt-6 text-xs text-cream/70">
+        $SI is a meme coin on Ethereum. Not financial advice. Do your own
+        research. Woof responsibly.
+      </p>
+    </footer>
+
+    <script>
+      const ca = "TBA";
+      const button = document.getElementById("copy-ca");
+      const toast = document.getElementById("copy-toast");
+
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(ca);
+        } catch {
+          const area = document.createElement("textarea");
+          area.value = ca;
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        toast.classList.remove("hidden");
+        button.textContent = "COPIED";
+        setTimeout(() => {
+          toast.classList.add("hidden");
+          button.textContent = "COPY CA";
+        }, 1800);
+      });
+    </script>
+  </body>
+</html>
